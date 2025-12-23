@@ -12,6 +12,9 @@
   <img alt="uv" src="https://img.shields.io/badge/uv-0.40.0-4B8BBE" />
   <img alt="Coverage" src="coverage.svg" />
 </p>
+<p align="center">
+  <a href="https://technical-test-cari-ai.onrender.com/api/v1/docs">Live Demo</a>
+</p>
 
 ## Installation
 ### System Dependencies
