@@ -3,6 +3,7 @@
 import json
 from functools import lru_cache
 from pathlib import Path
+from typing import cast
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -20,10 +21,13 @@ def _safe_json_loads(value: str) -> object:
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        extra="ignore",
-        env_json_loads=_safe_json_loads,
+    model_config = cast(
+        SettingsConfigDict,
+        {
+            "env_file": ".env",
+            "extra": "ignore",
+            "env_json_loads": _safe_json_loads,
+        },
     )
 
     env: str = "dev"
