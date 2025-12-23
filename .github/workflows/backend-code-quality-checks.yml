@@ -1,4 +1,4 @@
-name: Lint (pre-commit)
+name: "Code Quality: Linting, Formatting & Type Checking"
 
 on:
   pull_request:
