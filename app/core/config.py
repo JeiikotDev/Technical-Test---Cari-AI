@@ -1,7 +1,7 @@
 """Application-wide configuration constants."""
 
-from functools import lru_cache
 import json
+from functools import lru_cache
 from pathlib import Path
 
 from pydantic import Field, field_validator
@@ -9,9 +9,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 KNOWLEDGE_BASE_PATH = ROOT_DIR / "resources" / "knowledge_base.json"
-DEFAULT_FALLBACK_SUGGESTION = (
-    "No encontré una coincidencia exacta, ¿podrías darme más detalles?"
-)
+DEFAULT_FALLBACK_SUGGESTION = "No encontré una coincidencia exacta, ¿podrías darme más detalles?"
 
 
 def _safe_json_loads(value: str) -> object:

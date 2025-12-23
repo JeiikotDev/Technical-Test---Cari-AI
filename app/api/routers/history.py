@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Annotated
+
 from fastapi import APIRouter, Depends, status
 
 from app.api.dependencies import get_suggestion_service
@@ -7,6 +9,7 @@ from app.core.models import HistoryItem
 from app.core.services import SuggestionService
 
 router = APIRouter()
+SuggestionServiceDep = Annotated[SuggestionService, Depends(get_suggestion_service)]
 
 
 @router.get(
@@ -16,6 +19,6 @@ router = APIRouter()
     summary="History of handled queries",
 )
 def history(
-    service: SuggestionService = Depends(get_suggestion_service),
+    service: SuggestionServiceDep,
 ) -> list[HistoryItem]:
     return [HistoryItem.from_record(record) for record in service.history()]

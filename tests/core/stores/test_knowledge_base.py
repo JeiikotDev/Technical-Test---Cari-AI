@@ -1,7 +1,6 @@
 import json
 
 import pytest
-
 from app.core.models import KnowledgeBaseEntry
 from app.core.stores.knowledge_base import KnowledgeBase, _normalize_text
 
@@ -145,10 +144,7 @@ class TestKnowledgeBaseOperations:
             ]
         )
 
-        assert (
-            knowledge_base.best_match("Necesito ayuda con soporte", threshold=0.99)
-            is None
-        )
+        assert knowledge_base.best_match("Necesito ayuda con soporte", threshold=0.99) is None
 
 
 class TestTextNormalization:

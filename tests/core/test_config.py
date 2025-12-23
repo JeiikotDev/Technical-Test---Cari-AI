@@ -13,9 +13,7 @@ class TestSettingsCorsOrigins:
         assert settings.cors_origins == []
 
     def test_string_is_split_and_stripped(self) -> None:
-        settings = Settings(
-            cors_origins="https://alpha.example.com, https://beta.example.com  ,"
-        )
+        settings = Settings(cors_origins="https://alpha.example.com, https://beta.example.com  ,")
 
         assert settings.cors_origins == [
             "https://alpha.example.com",

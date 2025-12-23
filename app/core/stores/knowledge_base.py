@@ -3,11 +3,11 @@ from __future__ import annotations
 import json
 import re
 import unicodedata
+from collections.abc import Iterable
 from dataclasses import asdict
 from difflib import SequenceMatcher
 from pathlib import Path
 from threading import Lock
-from typing import Iterable, Optional
 
 from app.core.models.entities import KnowledgeBaseEntry
 
@@ -20,7 +20,7 @@ class KnowledgeBase:
         self._lock = Lock()
 
     @classmethod
-    def from_json(cls, path: Path) -> "KnowledgeBase":
+    def from_json(cls, path: Path) -> KnowledgeBase:
         """Load entries from a JSON file containing pregunta/respuesta objects."""
         if not path.exists():
             raise FileNotFoundError(f"Knowledge base file not found: {path}")
@@ -45,11 +45,11 @@ class KnowledgeBase:
         with self._lock:
             self._entries.append(entry)
 
-    def best_match(self, query: str, threshold: float = 0.55) -> Optional[str]:
+    def best_match(self, query: str, threshold: float = 0.55) -> str | None:
         """Return the answer with the highest similarity over the threshold."""
         normalized_query = _normalize_text(query)
         best_ratio = 0.0
-        best_answer: Optional[str] = None
+        best_answer: str | None = None
 
         with self._lock:
             for entry in self._entries:

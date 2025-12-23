@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from app.core.stores import HistoryStore, KnowledgeBase
 from app.core.models.entities import HistoryRecord, KnowledgeBaseEntry
+from app.core.stores import HistoryStore, KnowledgeBase
 
 
 class SuggestionService:

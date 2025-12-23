@@ -6,9 +6,9 @@ from .config import (
     Settings,
     get_settings,
 )
-from .stores import HistoryStore, KnowledgeBase
 from .models import HistoryRecord, KnowledgeBaseEntry
 from .services import SuggestionService
+from .stores import HistoryStore, KnowledgeBase
 
 __all__ = [
     "DEFAULT_FALLBACK_SUGGESTION",

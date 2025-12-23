@@ -8,9 +8,9 @@ from starlette.middleware.gzip import GZipMiddleware
 
 from app.api import router
 from app.core.config import Settings, get_settings
-from app.core.stores import HistoryStore, KnowledgeBase
 from app.core.models import KnowledgeBaseEntry
 from app.core.services import SuggestionService
+from app.core.stores import HistoryStore, KnowledgeBase
 
 
 def configure_middleware(fastapi_app: FastAPI, settings: Settings) -> None:
@@ -49,9 +49,7 @@ def create_app(
     effective_path = knowledge_base_path or settings.knowledge_base_path
     effective_fallback = fallback_message or settings.fallback_message
     knowledge_base = (
-        KnowledgeBase(entries)
-        if entries is not None
-        else KnowledgeBase.from_json(effective_path)
+        KnowledgeBase(entries) if entries is not None else KnowledgeBase.from_json(effective_path)
     )
     history_store = HistoryStore()
     suggestion_service = SuggestionService(

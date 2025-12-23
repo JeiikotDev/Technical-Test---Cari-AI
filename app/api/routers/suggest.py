@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+from typing import Annotated
+
 from fastapi import APIRouter, Depends, status
 
 from app.api.dependencies import get_suggestion_service
-from app.core.models import SuggestRequest, SuggestionResponse
+from app.core.models import SuggestionResponse, SuggestRequest
 from app.core.services import SuggestionService
 
 router = APIRouter()
+SuggestionServiceDep = Annotated[SuggestionService, Depends(get_suggestion_service)]
 
 
 @router.post(
@@ -17,7 +20,7 @@ router = APIRouter()
 )
 def suggest(
     payload: SuggestRequest,
-    service: SuggestionService = Depends(get_suggestion_service),
+    service: SuggestionServiceDep,
 ) -> SuggestionResponse:
     suggestion = service.suggest(payload.query)
     return SuggestionResponse(suggestion=suggestion)

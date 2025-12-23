@@ -1,10 +1,9 @@
 import os
 
 import pytest
-from fastapi.testclient import TestClient
-
 from app.core.models import KnowledgeBaseEntry
 from app.main import create_app
+from fastapi.testclient import TestClient
 
 
 def resolve_api_prefix() -> str:

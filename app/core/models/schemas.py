@@ -20,7 +20,7 @@ class HistoryItem(BaseModel):
     suggestion: str
 
     @classmethod
-    def from_record(cls, record: HistoryRecord) -> "HistoryItem":
+    def from_record(cls, record: HistoryRecord) -> HistoryItem:
         return cls.model_validate(vars(record))
 
 
@@ -41,5 +41,5 @@ class KnowledgeBaseItem(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, populate_by_name=True)
 
     @classmethod
-    def from_entry(cls, entry: KnowledgeBaseEntry) -> "KnowledgeBaseItem":
+    def from_entry(cls, entry: KnowledgeBaseEntry) -> KnowledgeBaseItem:
         return cls.model_validate(vars(entry))

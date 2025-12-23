@@ -30,6 +30,8 @@ lint.ignore = ["S101"]  # allow asserts in tests
 
 [tool.mypy]
 python_version = "3.11"
+explicit_package_bases = true
+mypy_path = ["."]
 warn_unused_configs = true
 disallow_untyped_defs = true
 disallow_incomplete_defs = true

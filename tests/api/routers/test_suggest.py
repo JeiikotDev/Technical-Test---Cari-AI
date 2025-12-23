@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 from fastapi.testclient import TestClient
 
@@ -13,6 +13,4 @@ class TestSuggestEndpoint:
         )
 
         assert suggestion_response.status_code == 200
-        assert suggestion_response.json()["suggestion"].startswith(
-            "Puedes cambiar tu contraseña"
-        )
+        assert suggestion_response.json()["suggestion"].startswith("Puedes cambiar tu contraseña")
