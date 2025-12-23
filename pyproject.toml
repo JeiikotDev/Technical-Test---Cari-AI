@@ -1,0 +1,46 @@
+[project]
+name = "cari-ai-faq"
+version = "0.1.0"
+description = "Lightweight FastAPI service that suggests answers from a FAQ knowledge base."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.127.0",
+  "pydantic==2.12.5",
+  "pydantic-settings==2.12.0",
+  "uvicorn==0.40.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx==0.28.1",
+  "mypy==1.19.1",
+  "pre-commit==4.5.1",
+  "pytest==9.0.2",
+  "pytest-cov==6.1.0",
+  "ruff==0.14.10",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["app", "tests"]
+lint.select = ["E", "F", "I", "N", "UP", "B", "S", "A", "C4"]
+lint.ignore = ["S101"]  # allow asserts in tests
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+ignore_missing_imports = true
+plugins = []
+exclude = ["tests/.*\\.py"]
+pretty = true
+
+[tool.pytest.ini_options]
+addopts = "--cov=app --cov-report=term-missing"
