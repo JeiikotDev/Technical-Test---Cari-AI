@@ -1,0 +1,22 @@
+[
+  {
+    "pregunta": "¿Cómo cambio mi contraseña?",
+    "respuesta": "Puedes cambiar tu contraseña en la sección de configuración de tu perfil."
+  },
+  {
+    "pregunta": "¿Cuál es el horario de atención?",
+    "respuesta": "Nuestro horario es de lunes a viernes de 8 am a 5 pm."
+  },
+  {
+    "pregunta": "¿Puedo actualizar mis datos de facturación?",
+    "respuesta": "Sí, en el panel de cuenta encontrarás la sección de facturación para editar tus datos."
+  },
+  {
+    "pregunta": "¿Qué hacer si no recibí el correo de verificación?",
+    "respuesta": "Revisa tu carpeta de spam y, si no aparece, solicita un nuevo correo desde la página de inicio de sesión."
+  },
+  {
+    "pregunta": "¿Cómo obtengo soporte?",
+    "respuesta": "Puedes escribirnos al chat o al correo soporte@cariai.com."
+  }
+]
