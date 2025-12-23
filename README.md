@@ -112,6 +112,11 @@ Alternative with uv:
 ```bash
 uv run pytest
 ```
+Coverage badge (optional):
+```bash
+pytest --cov=app --cov-report=term
+coverage-badge -o coverage.svg -f
+```
 
 ## Notes
 - Similarity uses `difflib.SequenceMatcher` with a configurable threshold.
